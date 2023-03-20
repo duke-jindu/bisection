@@ -38,15 +38,15 @@
 
 float fx1, fx2, fx3;
 int x1, x2;
-
+//no tolerance declared
 Console.Write("Enter Value for X1 :");
-x1 = int.Parse(Console.ReadLine());
+x1 = int.Parse(Console.ReadLine());//use float.Parse instead
 fx1 = fx(x1);
 
 Console.Write("Enter Value for X2 :");
 x2 = int.Parse(Console.ReadLine());
 fx2 = fx(x2);
-
+//no check for fx1*fx2 < 0
 Console.Write("Number Of Itrations = ");
 int itre = int.Parse(Console.ReadLine());
 
@@ -56,7 +56,7 @@ fx3= fx(m);
 
 int counter = 0;
 
-while (Math.Abs(x1 - x2) > 0.01 || m != 0)
+while (Math.Abs(x1 - x2) > 0.01 || m != 0)//what type of condition is this?
 
 {
     if (counter == itre)
@@ -72,7 +72,7 @@ while (Math.Abs(x1 - x2) > 0.01 || m != 0)
     Console.WriteLine("Fx3 = " + fx3);
     counter = counter + 1;
 
-    if (m == 0)
+    if (m == 0)//shouldn't you be checking whether fx is 0 or less than a tolerance value
     {
        Console.WriteLine("the root is" + m);
         break;
@@ -98,6 +98,8 @@ Console.ReadLine();
  
  float fx(float x)
 {
-    x = ((float)Math.Pow(2*x , 3)) -  (2 * x) - 5;
+    x = ((float)Math.Pow(2*x , 3)) -  (2 * x) - 5;//your function is wrong again
+    //why equate your result to x?
+    //math.Pow(x,3)-8*x 
     return x;
 }
